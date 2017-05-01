@@ -1,8 +1,6 @@
 class Project < ApplicationRecord
 
-  validates :name, presence: true
-  validates :description, presence: true
-  validates :project_cost, presence: true
+  [:name, :description, :project_cost].each { |attr| validates attr, presence: true }
   validates :project_cost, numericality: true
 
 end
